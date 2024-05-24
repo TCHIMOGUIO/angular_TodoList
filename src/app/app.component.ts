@@ -22,15 +22,15 @@ get itemCount(): number {
     return this.list.items.filter(item => !item.complete).length;
 }
 
-// get items(): readonly TodoItem[] {
-//   return this.list.items
-// }
+get items(): readonly TodoItem[] {
+    return this.list.items.filter(item => this.showComplete || !item.complete);
+}
 
-// addItem(newItem: string) {
-//     if (newItem != "") {
-//         this.list.addItem(newItem);
-//     }
-// }
+addItem(newItem: string) {
+    if (newItem != "") {
+        this.list.addTask(newItem);    
+    }
+}
 
 showComplete: boolean = false;
 }
